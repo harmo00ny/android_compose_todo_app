@@ -2,6 +2,7 @@ package com.marysugar.android_compose_todo_app.repository.todo
 
 import com.marysugar.android_compose_todo_app.model.todo.ToDo
 import com.marysugar.android_compose_todo_app.model.todo.ToDoDAO
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class ToDoRepositoryImpl @Inject constructor(
@@ -16,5 +17,9 @@ class ToDoRepositoryImpl @Inject constructor(
         )
         dao.create(todo)
         return todo
+    }
+
+    override fun getAll(): Flow<List<ToDo>> {
+        return dao.getAll()
     }
 }
